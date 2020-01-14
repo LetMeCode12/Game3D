@@ -6,6 +6,7 @@ public class Stering_Car : MonoBehaviour
 {
     public float MotorForce, SteerFroce, BreakForce ,v ,h,b,f;
     public WheelCollider FR_L_Wheel, FR_R_Wheel, BC_L_Wheel, BC_R_Wheel;
+    public AudioSource audio;
 
 
     // Start is called before the first frame update
@@ -17,6 +18,7 @@ public class Stering_Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        soundEfect();
          v = Input.GetAxis("Vertical") * MotorForce;
          h = Input.GetAxis("Horizontal") * SteerFroce;
 
@@ -69,5 +71,18 @@ public class Stering_Car : MonoBehaviour
             v = v - 1000;
             Debug.Log("Wstecny");
         }
+    }
+
+    void soundEfect()
+    {
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+
+        }
+        else
+        {
+            audio.pitch = v / 10000;
+        }
+      
     }
 }
